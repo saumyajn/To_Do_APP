@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDO App</title>
+  <link href="http://cdn.jsdelivr.net/webjars/bootstrap/4.5.0/css/bootstrap.min.css"
+        th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}"
+        rel="stylesheet" media="screen"/>
+
+  <script src="http://cdn.jsdelivr.net/webjars/jquery/3.5.1/jquery.min.js"
+          th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
+
+  <link href="../static/css/spring-core.css"
+        th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid bg-light">
+  <div class="display-4 ">Todo App</div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-top: -5vh">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/todos">List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/todo/add">Add new</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid" style="margin: 2vh;">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>Show To-do</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10">
+      <form class="form-horizontal">
+        <img class="form-control-static" style="max-width: 300px" th:src="${todo.imageUrl}"></img>
+
+        <div class="form-group row">
+          <label class="col-2 control-label">Todo Id: </label>
+          <div class="col-10">
+            <p class="form-control-static size" th:text="${todo.id}">Todo Id</p>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-2 control-label">Task Name: </label>
+          <div class="col-10">
+            <p class="form-control-static" th:text="${todo.name}">Task Name</p>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-2 control-label">Description: </label>
+          <div class="col-10">
+            <p class="form-control-static" th:text="${todo.description}">Description</p>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-2 control-label">Target Date: </label>
+          <div class="col-10">
+            <p class="form-control-static" th:text="${todo.targetDate}">Target Date</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
